@@ -13,11 +13,11 @@ x_vec = rnorm(30, mean = 5, sd = 3)
 (x_vec - mean(x_vec)) / sd(x_vec)
 ```
 
-    ##  [1] -0.38662304  1.33022659  0.35151034 -0.15778345  1.12036695 -0.09094710
-    ##  [7] -0.03376817  1.07061102 -0.05448081 -0.18096117 -0.41499840  0.19982652
-    ## [13]  0.20523421 -0.32780575  0.42647077 -0.31740003 -1.55091927 -2.05000911
-    ## [19] -0.49248821 -0.41367225 -0.98836635 -0.20877041 -0.97403179  0.99827646
-    ## [25]  3.02442403  0.16366768 -0.97528682  1.19789491  0.80982821 -1.28002554
+    ##  [1]  0.9946077 -0.3073553  0.1567448 -0.8743220  2.0480612 -1.9010721
+    ##  [7] -0.5568518  1.0861810 -0.3423712  0.1096209 -0.2143252  1.7584875
+    ## [13]  0.1673337 -1.2570725 -0.4898077 -0.2470303 -0.8907680  0.4084755
+    ## [19]  0.2331274 -1.5402542 -0.8227722  0.6812807 -1.3585492  0.1040474
+    ## [25]  1.4399666  1.2357342  0.1152843  0.4429628 -1.1945340  1.0151701
 
 I want a function that computes z-scores.
 
@@ -33,11 +33,11 @@ z_scores = function(x) {
 z_scores(x_vec)
 ```
 
-    ##  [1] -0.38662304  1.33022659  0.35151034 -0.15778345  1.12036695 -0.09094710
-    ##  [7] -0.03376817  1.07061102 -0.05448081 -0.18096117 -0.41499840  0.19982652
-    ## [13]  0.20523421 -0.32780575  0.42647077 -0.31740003 -1.55091927 -2.05000911
-    ## [19] -0.49248821 -0.41367225 -0.98836635 -0.20877041 -0.97403179  0.99827646
-    ## [25]  3.02442403  0.16366768 -0.97528682  1.19789491  0.80982821 -1.28002554
+    ##  [1]  0.9946077 -0.3073553  0.1567448 -0.8743220  2.0480612 -1.9010721
+    ##  [7] -0.5568518  1.0861810 -0.3423712  0.1096209 -0.2143252  1.7584875
+    ## [13]  0.1673337 -1.2570725 -0.4898077 -0.2470303 -0.8907680  0.4084755
+    ## [19]  0.2331274 -1.5402542 -0.8227722  0.6812807 -1.3585492  0.1040474
+    ## [25]  1.4399666  1.2357342  0.1152843  0.4429628 -1.1945340  1.0151701
 
 Try my function on some other things\!
 
@@ -91,11 +91,11 @@ z_scores = function(x) {
 z_scores(x_vec)
 ```
 
-    ##  [1] -0.38662304  1.33022659  0.35151034 -0.15778345  1.12036695 -0.09094710
-    ##  [7] -0.03376817  1.07061102 -0.05448081 -0.18096117 -0.41499840  0.19982652
-    ## [13]  0.20523421 -0.32780575  0.42647077 -0.31740003 -1.55091927 -2.05000911
-    ## [19] -0.49248821 -0.41367225 -0.98836635 -0.20877041 -0.97403179  0.99827646
-    ## [25]  3.02442403  0.16366768 -0.97528682  1.19789491  0.80982821 -1.28002554
+    ##  [1]  0.9946077 -0.3073553  0.1567448 -0.8743220  2.0480612 -1.9010721
+    ##  [7] -0.5568518  1.0861810 -0.3423712  0.1096209 -0.2143252  1.7584875
+    ## [13]  0.1673337 -1.2570725 -0.4898077 -0.2470303 -0.8907680  0.4084755
+    ## [19]  0.2331274 -1.5402542 -0.8227722  0.6812807 -1.3585492  0.1040474
+    ## [25]  1.4399666  1.2357342  0.1152843  0.4429628 -1.1945340  1.0151701
 
 ## Multiple Outputs
 
@@ -129,9 +129,9 @@ mean_and_sd(x_vec)
 ```
 
     ## # A tibble: 1 x 2
-    ##      mean    sd
-    ##     <dbl> <dbl>
-    ## 1 -0.0157  1.00
+    ##     mean    sd
+    ##    <dbl> <dbl>
+    ## 1 0.0240  1.02
 
 ## Multiple inputs
 
@@ -153,7 +153,7 @@ sim_data %>%
     ## # A tibble: 1 x 2
     ##    mean    sd
     ##   <dbl> <dbl>
-    ## 1  3.45  2.80
+    ## 1  4.02  3.03
 
 ``` r
 sim_mean_sd = function(samp_size, mu = 3, sigma = 4) {
@@ -177,7 +177,7 @@ sim_mean_sd(samp_size = 100, mu = 6, sigma = 3)
     ## # A tibble: 1 x 2
     ##    mean    sd
     ##   <dbl> <dbl>
-    ## 1  6.61  3.35
+    ## 1  6.25  2.85
 
 ``` r
 sim_mean_sd(samp_size = 100, sigma = 3, mu = 6)
@@ -186,7 +186,7 @@ sim_mean_sd(samp_size = 100, sigma = 3, mu = 6)
     ## # A tibble: 1 x 2
     ##    mean    sd
     ##   <dbl> <dbl>
-    ## 1  6.15  3.18
+    ## 1  5.90  3.12
 
 ``` r
 sim_mean_sd(samp_size = 100)
@@ -195,4 +195,153 @@ sim_mean_sd(samp_size = 100)
     ## # A tibble: 1 x 2
     ##    mean    sd
     ##   <dbl> <dbl>
-    ## 1  3.08  3.86
+    ## 1  2.49  3.60
+
+## Let’s review Napoleon Dynamite
+
+``` r
+url = "https://www.amazon.com/product-reviews/B00005JNBQ/ref=cm_cr_arp_d_viewopt_rvwer?ie=UTF8&reviewerType=avp_only_reviews&sortBy=recent&pageNumber=1"
+
+dynamite_html = read_html(url)
+
+review_titles = 
+  dynamite_html %>%
+  html_nodes(".a-text-bold span") %>%
+  html_text()
+
+review_stars = 
+  dynamite_html %>%
+  html_nodes("#cm_cr-review_list .review-rating") %>%
+  html_text() %>%
+  str_extract("^\\d") %>%
+  as.numeric()
+
+review_text = 
+  dynamite_html %>%
+  html_nodes(".review-text-content span") %>%
+  html_text() %>% 
+  str_replace_all("\n", "") %>% 
+  str_trim()
+
+reviews_p1 = tibble(
+  title = review_titles,
+  stars = review_stars,
+  text = review_text
+)
+```
+
+What about the next page of reviews?
+
+``` r
+url = "https://www.amazon.com/product-reviews/B00005JNBQ/ref=cm_cr_arp_d_viewopt_rvwer?ie=UTF8&reviewerType=avp_only_reviews&sortBy=recent&pageNumber=2"
+
+dynamite_html = read_html(url)
+
+review_titles = 
+  dynamite_html %>%
+  html_nodes(".a-text-bold span") %>%
+  html_text()
+
+review_stars = 
+  dynamite_html %>%
+  html_nodes("#cm_cr-review_list .review-rating") %>%
+  html_text() %>%
+  str_extract("^\\d") %>%
+  as.numeric()
+
+review_text = 
+  dynamite_html %>%
+  html_nodes(".review-text-content span") %>%
+  html_text() %>% 
+  str_replace_all("\n", "") %>% 
+  str_trim()
+
+reviews_p2 = tibble(
+  title = review_titles,
+  stars = review_stars,
+  text = review_text
+)
+```
+
+…that sucks. Let’s make a function instead.
+
+``` r
+url = "https://www.amazon.com/product-reviews/B00005JNBQ/ref=cm_cr_arp_d_viewopt_rvwer?ie=UTF8&reviewerType=avp_only_reviews&sortBy=recent&pageNumber=2"
+
+read_page_reviews = function(url) {
+  
+  html = read_html(url)
+
+  review_titles = 
+    html %>%
+    html_nodes(".a-text-bold span") %>%
+    html_text()
+  
+  review_stars = 
+    html %>%
+    html_nodes("#cm_cr-review_list .review-rating") %>%
+    html_text() %>%
+    str_extract("^\\d") %>%
+    as.numeric()
+  
+  review_text = 
+    html %>%
+    html_nodes(".review-text-content span") %>%
+    html_text() %>% 
+    str_replace_all("\n", "") %>% 
+    str_trim()
+  
+  reviews = 
+    tibble(
+      title = review_titles,
+      stars = review_stars,
+      text = review_text
+    )
+  reviews
+}
+```
+
+Let’s try the new function.
+
+``` r
+dynamite_url = "https://www.amazon.com/product-reviews/B00005JNBQ/ref=cm_cr_arp_d_viewopt_rvwer?ie=UTF8&reviewerType=avp_only_reviews&sortBy=recent&pageNumber=2"
+
+read_page_reviews(dynamite_url)
+```
+
+    ## # A tibble: 10 x 3
+    ##    title                               stars text                               
+    ##    <chr>                               <dbl> <chr>                              
+    ##  1 Boo                                     1 "We rented this movie because our …
+    ##  2 Movie is still silly fun....amazon…     1 "We are getting really frustrated …
+    ##  3 Brilliant and awkwardly funny.          5 "I've watched this movie repeatedl…
+    ##  4 Great purchase price for great mov…     5 "Great movie and real good digital…
+    ##  5 Movie for memories                      5 "I've been looking for this movie …
+    ##  6 Love!                                   5 "Love this movie. Great quality"   
+    ##  7 Hilarious!                              5 "Such a funny movie, definitely br…
+    ##  8 napoleon dynamite                       5 "cool movie"                       
+    ##  9 Top 5                                   5 "Best MOVIE ever! Funny one liners…
+    ## 10 👍                                      5 "Exactly as described and came on …
+
+Let’s read a few pages of reviews.
+
+``` r
+dynamite_url_base = "https://www.amazon.com/product-reviews/B00005JNBQ/ref=cm_cr_arp_d_viewopt_rvwer?ie=UTF8&reviewerType=avp_only_reviews&sortBy=recent&pageNumber="
+
+dynamite_urls = str_c(dynamite_url_base, 1:5)
+
+dynamite_urls[1]
+```
+
+    ## [1] "https://www.amazon.com/product-reviews/B00005JNBQ/ref=cm_cr_arp_d_viewopt_rvwer?ie=UTF8&reviewerType=avp_only_reviews&sortBy=recent&pageNumber=1"
+
+``` r
+all_reviews = 
+  bind_rows(
+    read_page_reviews(dynamite_urls[1]),
+    read_page_reviews(dynamite_urls[2]),
+    read_page_reviews(dynamite_urls[3]),
+    read_page_reviews(dynamite_urls[4]),
+    read_page_reviews(dynamite_urls[5])
+  )
+```
