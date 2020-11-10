@@ -1,0 +1,85 @@
+---
+title: "Writing functions"
+author: "Adam Whalen"
+date: "11/9/2020"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(rvest)
+
+knitr::opts_chunk$set(
+  fig.width = 6,
+  fig.asp = .6,
+  out.width = "90%"
+)
+
+theme_set(theme_minimal() + theme(legend.position = "bottom"))
+
+options(
+  ggplot2.continuous.colour = "viridis",
+  ggplot2.continuous.fill = "viridis"
+)
+
+scale_colour_discrete = scale_color_viridis_d
+scale_fill_discrete = scale_fill_viridis_d
+```
+
+## Do something simple
+
+First: z-scores
+
+```{r}
+x_vec = rnorm(30, mean = 5, sd = 3)
+
+(x_vec - mean(x_vec)) / sd(x_vec)
+```
+
+I want a function that computes z-scores.
+
+```{r}
+z_scores = function(x) {
+  
+  z = (x - mean(x)) / sd(x)
+  
+  return(z)
+  
+}
+
+z_scores(x_vec)
+```
+
+Try my function on some other things!
+
+```{r, error = TRUE}
+z_scores(3)
+z_scores("my name is adam")
+z_scores(mtcars)
+z_scores(c(TRUE, TRUE, FALSE, TRUE))
+```
+
+Better make some adjustments to my function.
+
+```{r}
+z_scores = function(x) {
+  
+  if (!is.numeric(x)) {
+    stop("Input must be numeric")
+  }
+  
+  if (length(x) < 3) {
+    stop("Input must have at least 3 numbers")
+  }
+  
+  z = (x - mean(x)) / sd(x)
+  
+  return(z)
+  
+}
+
+z_scores(x_vec)
+```
+
+
+
