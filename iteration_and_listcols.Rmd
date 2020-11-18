@@ -55,9 +55,9 @@ Create a new list.
 list_norm = 
   list(
     a = rnorm(20, mean = 3, sd = 1),
-    a = rnorm(30, mean = 0, sd = 5),
-    a = rnorm(40, mean = 10, sd = .2),
-    a = rnorm(20, mean = -3, sd = 1)
+    b = rnorm(30, mean = 0, sd = 5),
+    c = rnorm(40, mean = 10, sd = .2),
+    d = rnorm(20, mean = -3, sd = 1)
 )
 ```
 
@@ -123,4 +123,11 @@ What about a different function?
 output = map(list_norm, IQR)
 ```
 
+```{r}
+output = map_dbl(list_norm, median)
+```
+
+```{r}
+output = map_df(list_norm, mean_and_sd, .id = "input")
+```
 
