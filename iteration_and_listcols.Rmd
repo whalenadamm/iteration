@@ -111,3 +111,16 @@ for(i in 1:4) {
 ```
 
 
+## Let's try `map`!
+
+```{r}
+map(list_norm, mean_and_sd)
+```
+
+What about a different function?
+
+```{r}
+output = map(list_norm, IQR)
+```
+
+

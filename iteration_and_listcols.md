@@ -31,8 +31,8 @@ l
     ## [2,]    2    4    6    8
     ## 
     ## $summary
-    ##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
-    ## -2.052636 -0.680654 -0.022991 -0.007248  0.645792  2.217677
+    ##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+    ## -2.81394 -0.73480  0.16868  0.06105  0.85334  2.38892
 
 ``` r
 l$vec_numeric
@@ -82,9 +82,9 @@ list_norm =
 list_norm[[1]]
 ```
 
-    ##  [1] 3.262730 1.799779 3.296531 1.683651 3.608943 2.711505 1.706336 3.381548
-    ##  [9] 2.962376 3.097830 3.079163 3.530446 2.130167 4.402541 2.038219 3.434114
-    ## [17] 3.726566 2.622195 3.187205 3.372945
+    ##  [1] 3.503720 1.960450 1.958308 1.758154 2.218818 2.192891 1.916681 3.857702
+    ##  [9] 2.992256 3.233128 2.524252 2.224397 1.704672 3.064690 3.954328 2.618028
+    ## [17] 4.147867 2.042689 3.868485 2.414293
 
 Pause and get my old function.
 
@@ -119,7 +119,7 @@ mean_and_sd(list_norm[[1]])
     ## # A tibble: 1 x 2
     ##    mean    sd
     ##   <dbl> <dbl>
-    ## 1  2.95 0.745
+    ## 1  2.71 0.807
 
 ``` r
 mean_and_sd(list_norm[[2]])
@@ -128,7 +128,7 @@ mean_and_sd(list_norm[[2]])
     ## # A tibble: 1 x 2
     ##     mean    sd
     ##    <dbl> <dbl>
-    ## 1 -0.279  4.61
+    ## 1 -0.203  4.66
 
 ``` r
 mean_and_sd(list_norm[[3]])
@@ -137,7 +137,7 @@ mean_and_sd(list_norm[[3]])
     ## # A tibble: 1 x 2
     ##    mean    sd
     ##   <dbl> <dbl>
-    ## 1  10.1 0.176
+    ## 1  9.98 0.189
 
 ``` r
 mean_and_sd(list_norm[[4]])
@@ -146,7 +146,7 @@ mean_and_sd(list_norm[[4]])
     ## # A tibble: 1 x 2
     ##    mean    sd
     ##   <dbl> <dbl>
-    ## 1 -2.70 0.932
+    ## 1 -2.85 0.793
 
 That’s a little tedious. Let’s use a `for` loop instead.
 
@@ -158,4 +158,40 @@ for(i in 1:4) {
   output[[i]] = mean_and_sd(list_norm[[i]])
   
 }
+```
+
+## Let’s try `map`\!
+
+``` r
+map(list_norm, mean_and_sd)
+```
+
+    ## $a
+    ## # A tibble: 1 x 2
+    ##    mean    sd
+    ##   <dbl> <dbl>
+    ## 1  2.71 0.807
+    ## 
+    ## $a
+    ## # A tibble: 1 x 2
+    ##     mean    sd
+    ##    <dbl> <dbl>
+    ## 1 -0.203  4.66
+    ## 
+    ## $a
+    ## # A tibble: 1 x 2
+    ##    mean    sd
+    ##   <dbl> <dbl>
+    ## 1  9.98 0.189
+    ## 
+    ## $a
+    ## # A tibble: 1 x 2
+    ##    mean    sd
+    ##   <dbl> <dbl>
+    ## 1 -2.85 0.793
+
+What about a different function?
+
+``` r
+output = map(list_norm, IQR)
 ```
